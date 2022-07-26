@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li {    
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+header{
+    background-color: black;
+    height: 95px;
+}
+header nav {
+    height: 100%;
+}
+
+
+.title_container{
+    height: 47.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.title{
+    display: inline;
+}
+.title a {
+    font-size: 30px;
+    color: white;
+}
+.list {
+    height: 47.5px;
+    display: flex;
+    justify-content: center;
+}
+.list li {
+    font-size: 11px;
+    margin: 0 30px;
+    text-transform: uppercase;
+}
+.ancore_list{
+    color: rgb(255, 255, 255);
+}
