@@ -1,0 +1,26 @@
+.counter-container{
+    display: block;
+    width: 150px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 1px grey;
+    border-radius: 3px;
+}
+.counter-container h3{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1px;
+    margin: 10px 0px;
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cartButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
