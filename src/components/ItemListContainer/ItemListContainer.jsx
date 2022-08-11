@@ -6,7 +6,7 @@ import ItemList from "../ItemList/ItemList.jsx";
 
 function getProducts () {
     return new Promise ((resolve) => {
-        setTimeout(()=> resolve (itemsData), 3000)
+        setTimeout(()=> resolve (itemsData), 2000)
     })
 }; 
 
