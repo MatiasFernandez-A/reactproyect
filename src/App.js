@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="Se vende Todo madera"/>
+      <ItemListContainer greeting="Guitarras "/>
       <ItemCount initial={1} stock={10}/>
     </div>
   );

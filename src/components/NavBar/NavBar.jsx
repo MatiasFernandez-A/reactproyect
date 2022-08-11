@@ -6,7 +6,7 @@ function NavBar () {
         <header>
             <nav>
                 <div className="title_container">
-                    <h1 className="title"><a href="#">Todo maderas</a></h1>    
+                    <h1 className="title"><a href="#">TG</a></h1>    
                 </div>
                 <ul className="list">
                     <li><a href="#" className="ancore_list">Inicio</a></li>
@@ -20,3 +20,4 @@ function NavBar () {
     )
 }
 export default NavBar; 
+

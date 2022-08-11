@@ -1,5 +1,6 @@
 import React from 'react';
 import "./ItemCount.css";
+/* rfcd para activar snippets de react */
 
 function ItemCount (props){
     const [clicks, setClicks] = React.useState(1);
