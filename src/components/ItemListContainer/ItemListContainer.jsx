@@ -1,7 +1,6 @@
 import "./ItemListContainer.css"
 import React, {useEffect, useState} from 'react'
 import itemsData from '../../data/data.js';
-import Item from "../Item/Item";
 import ItemList from "../ItemList/ItemList.jsx";
 
 function getProducts () {

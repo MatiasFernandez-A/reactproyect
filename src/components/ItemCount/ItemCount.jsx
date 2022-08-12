@@ -17,7 +17,7 @@ function ItemCount (props){
             setClicks (clicks - 1);
         } else {
             alert("Si o si tenes que llevar comprar al menos un producto")
-        }
+        }               
     }
 
     return(
