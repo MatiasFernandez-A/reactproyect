@@ -12,7 +12,7 @@ function getProducts () {
 }; 
 
 
-export default function ItemListContainer ({greeting : g,}){
+export default function ItemListContainer (){
     
     const [data, setData]  = useState ([]); 
 
@@ -32,9 +32,7 @@ export default function ItemListContainer ({greeting : g,}){
 
     return(
         <div>
-            <h1 className="titulo">{g}</h1>
             <ItemList data={data}/>
-
         </div>
         
     );

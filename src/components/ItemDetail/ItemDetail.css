@@ -1,0 +1,38 @@
+.container-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    margin: auto;
+    background-color: white;
+    margin-top: 50px;
+}
+.image-container{
+    width: 50%;
+    height: 500px;
+}
+.imgage-product{
+    width: 433px;
+    height: 469px;
+    object-fit: contain;
+}
+.item-detail{
+    margin: 10px 20px;
+}
+.model-container{
+    display: flex;
+}
+.model-container p{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: #1c1b1b;
+    /*  
+    transition: color 0.2s ease-in-out;
+    */    
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 25px;
+    font-size: 18px;
+}

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import itemsData from '../../data/data.js';
 import ItemDetail from '../ItemDetail/ItemDetail.jsx';
 import { useParams } from 'react-router-dom';
-
+import './ItemDetailContainer.css'
 
 
 
@@ -33,9 +33,8 @@ export default function ItemDetailContainer (props){
     }, []);
 
     return(
-        <div>
-            <h1 className="titulo">{props.greeting}</h1>
-            <ItemDetail  model={item.model} price={item.price} description={item.description} stock={item.stock}/>
+        <div className='item-detail-container'>
+            <ItemDetail image={item.img} model={item.model} price={item.price} description={item.description} stock={item.stock}/>
         </div>
         
     );

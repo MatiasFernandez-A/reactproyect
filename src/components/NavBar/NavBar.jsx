@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 function NavBar () {
     return (
         <header>
+            <div className="oferta-container">
+                <p>12 Cuotas sin interes</p>
+            </div>
             <nav>
                 <div className="title_container">
                     <h1 className="title"><a href="#">TG</a></h1>    
