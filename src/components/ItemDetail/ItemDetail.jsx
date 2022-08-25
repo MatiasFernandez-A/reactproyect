@@ -12,12 +12,10 @@ function ItemDetail({model,price,description,stock, image}) {
   y a traves de destructuring llamamos a la funcion addToCart */
   const { addToCart } = useContext(cartContext);
 
-  const [recount, setReCount] = useState([]); 
+  const [recount, setReCount] = useState(0); 
 
   function handleAdd (count){
-/*     console.log(stock)
-    console.log("Agregar al carrito", setReCount);
-    setReCount = count  */
+    setReCount(count)
     const itemToCart = {model,price,description,stock, image}
     addToCart(itemToCart, count);   
   }
@@ -40,8 +38,8 @@ function ItemDetail({model,price,description,stock, image}) {
             <p>{description}</p>
           </div>
           <div>
-            {/* No sé si poner === o == */}
-          { recount == 0 ? 
+            {/* RENDER CONDICINAL  */}
+          { recount === 0 ? 
             <ItemCount 
               stock={stock}
               initial="1" 
