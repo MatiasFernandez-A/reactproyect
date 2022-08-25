@@ -11,7 +11,6 @@ function getProducts () {
     })
 }; 
 
-
 export default function ItemListContainer (){
     
     const [data, setData]  = useState ([]); 

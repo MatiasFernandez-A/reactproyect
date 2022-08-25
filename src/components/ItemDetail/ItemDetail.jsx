@@ -1,15 +1,25 @@
 import React, {useState} from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
-
+// importamoes el hook context de React
+import {useContext} from 'react'; 
+// importamos el context CartContext del archivo
+import { cartContext } from '../../store/cartContext'; 
+ 
 function ItemDetail({model,price,description,stock, image}) {
+
+  /* Nos conectamos a traves del context a CartContext
+  y a traves de destructuring llamamos a la funcion addToCart */
+  const { addToCart } = useContext(cartContext);
 
   const [recount, setReCount] = useState([]); 
 
   function handleAdd (count){
-    console.log(stock)
+/*     console.log(stock)
     console.log("Agregar al carrito", setReCount);
-    setReCount = count 
+    setReCount = count  */
+    const itemToCart = {model,price,description,stock, image}
+    addToCart(itemToCart, count);   
   }
 
   
@@ -30,7 +40,8 @@ function ItemDetail({model,price,description,stock, image}) {
             <p>{description}</p>
           </div>
           <div>
-          { recount === 0 ? 
+            {/* No sé si poner === o == */}
+          { recount == 0 ? 
             <ItemCount 
               stock={stock}
               initial="1" 
