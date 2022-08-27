@@ -16,7 +16,7 @@ export function CartProvider ({children}){
     
     function addToCart(item, count){
         if (isInCart(item.id)){
-            alert("El item ya existe")
+            console.log("El producto esta en el carrito")
         } else {
             let copyCart = [...cart]; // Hacemos una copia del estado del carrito
             copyCart.push ({...item, quantity: count});

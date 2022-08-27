@@ -10,9 +10,10 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 
 // 4- Definimos cuales son los componentes que van a acceder a ese context 
 import {CartProvider} from './store/cartContext'; 
+import Cart from './components/Cart/Cart';
 
 
-function App() {  
+function App() {
   return (
     <div>
       <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
             <Route path='/contacto' element={<Contacto/>}/>
             <Route path='/detalle/:id' element={<ItemDetailContainer/>} />
             <Route path='/categoria/:idCategory' element={<ItemListContainer/>}/>
+            <Route path='/cart' element={<Cart/>}/>
           </Routes>
           <Footer/>
         </CartProvider>

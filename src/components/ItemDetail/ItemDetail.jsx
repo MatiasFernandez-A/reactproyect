@@ -5,6 +5,7 @@ import './ItemDetail.css';
 import {useContext} from 'react'; 
 // importamos el context CartContext del archivo
 import { cartContext } from '../../store/cartContext'; 
+import { Link } from 'react-router-dom';
  
 function ItemDetail({model,price,description,stock, image}) {
 
@@ -45,7 +46,7 @@ function ItemDetail({model,price,description,stock, image}) {
               initial="1" 
               onAdd={handleAdd}
             />
-            : <a href='/cart'>Ir al carrito</a>
+            : <Link to='/cart'>Ir al carrito</Link>
           }
           </div>
         </div>

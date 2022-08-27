@@ -14,7 +14,7 @@ function Item({ id, model, price, img, description }) {
         <h3>$ {price}</h3>
       </div>
       <div className="card-button">
-        <Link to={`/detalle/${id}`}>Ver mas</Link> {/* Link */} 
+        <Link to={`/detalle/${id}`}>Ver mas</Link> 
       </div>
     </div>
   );
