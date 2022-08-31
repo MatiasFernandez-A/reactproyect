@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {cartContext} from '../../store/cartContext'
 import ItemCart from '../ItemCart/ItemCart';
+import './Cart.css';
 
 function Cart( ) {
 
@@ -8,7 +9,7 @@ function Cart( ) {
 
   console.log(cart);
   return (
-    <div>
+    <div className='cart-container'>
       {
         cart.map((item)=>{
           return (

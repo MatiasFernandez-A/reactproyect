@@ -1,0 +1,9 @@
+.cart{
+    width: 900px;
+    height: 100px;
+    background-color: lightblue;
+    margin: 8px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
