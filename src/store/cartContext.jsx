@@ -15,17 +15,18 @@ export function CartProvider ({children}){
     const [cart, setCart] = useState([]);
     
     function addToCart(item, count){
+
         if (isInCart(item.id)){
             console.log("El producto esta en el carrito")
         } else {
             let copyCart = [...cart]; // Hacemos una copia del estado del carrito
             copyCart.push ({...item, quantity: count});
+            
             setCart(copyCart);
         }
     }
     function isInCart (id) {
         return(cart.some(itemInCart => itemInCart.id === id))
-
     }
 
     return(

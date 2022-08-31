@@ -1,28 +1,29 @@
 import React, {useContext} from 'react'
 import {cartContext} from '../../store/cartContext'
+import ItemCart from '../ItemCart/ItemCart';
 
 function Cart( ) {
 
-  let cartView = useContext(cartContext)
-  console.log(`Esto hay dentro del carrito ${cartView}`);
+  let {cart} = useContext(cartContext)
 
+  console.log(cart);
   return (
     <div>
-      <p>Esta es la pagina de carrito</p>
-      <div>
-        <div>
-          <img src="" alt="" />
-        </div>
-        <div>
-          <p>model</p>
-          <p>Precio</p>
-        </div>
-        <div>
-          <button>Eliminar</button>
-        </div>
-      </div>
-    </div>
+      {
+        cart.map((item)=>{
+          return (
+              <ItemCart
+                  model={item.model}
+                  price={item.price}
+                  img={item.img}
+              />
+          )
+    }
   )
 }
+  </div>
+)
+}
+
 
 export default Cart

@@ -34,7 +34,7 @@ export default function ItemDetailContainer (props){
 
     return(
         <div className='item-detail-container'>
-            <ItemDetail image={item.img} model={item.model} price={item.price} description={item.description} stock={item.stock}/>
+            <ItemDetail item={item}/>
         </div>
         
     );
