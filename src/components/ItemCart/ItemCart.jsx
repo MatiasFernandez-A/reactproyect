@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import "./ItemCart.css"
+import { cartContext } from '../../store/cartContext'
 
-function ItemCart({ model, price}) {
+function ItemCart({ model, price, quantity, id}) {
+
+    let {eliminarItem} = useContext(cartContext)
+
+    function borrarItem() {
+        eliminarItem(id)
+    }
+
   return (
     <div>
         <div className="cart">
@@ -9,10 +17,13 @@ function ItemCart({ model, price}) {
                 <h2>{model}</h2>
             </div>
             <div>
-                <h3>$ {price}</h3>
+                <h3>Precio por unidad $ {price}</h3>
+            </div>
+            <div>
+                <p>Cantidad: <span>{quantity}</span></p>
             </div>
             <div className="cart-button">
-                <button>X</button>
+                <button onClick={borrarItem}>X</button>
             </div>
         </div>
     </div>

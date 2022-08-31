@@ -1,3 +1,4 @@
+import { faBuildingCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import React, {useContext} from 'react'
 import {cartContext} from '../../store/cartContext'
 import ItemCart from '../ItemCart/ItemCart';
@@ -5,25 +6,32 @@ import './Cart.css';
 
 function Cart( ) {
 
-  let {cart} = useContext(cartContext)
+  let {cart, precioTotal} = useContext(cartContext)
 
-  console.log(cart);
+
   return (
     <div className='cart-container'>
       {
         cart.map((item)=>{
           return (
-              <ItemCart
-                  model={item.model}
-                  price={item.price}
-                  img={item.img}
-              />
+            <ItemCart
+              key={item.id}
+              id={item.id}
+              model={item.model}
+              price={item.price}
+              quantity={item.quantity}
+            />
           )
-    }
+        })
+      }
+      <div className='precio-total-container'>
+        <p className='precio-total'>
+          Precio total $ 
+          <span>{precioTotal()}</span>
+        </p>
+      </div>
+    </div>
   )
-}
-  </div>
-)
 }
 
 

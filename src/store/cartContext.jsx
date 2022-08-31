@@ -25,14 +25,29 @@ export function CartProvider ({children}){
             setCart(copyCart);
         }
     }
+    function precioTotal () {
+        return cart.reduce((acum, i) => acum + i.quantity * i.price, 0)
+    }
+    function eliminarItem (id) {
+        const items = cart.filter((product) => product.id !== id)
+        setCart(items)
+        alert("quieres Eliminarlo ?")
+    }
     function isInCart (id) {
         return(cart.some(itemInCart => itemInCart.id === id))
     }
 
     return(
         /* Le damos un value con el estado cart que permite que todos los componentes que lean CartProvider puedan tambien leer el estado */
-        <cartContext.Provider value={{cart, addToCart}}>
-            {children}
+        <cartContext.Provider 
+            value={{
+                cart, 
+                addToCart,
+                precioTotal,
+                eliminarItem
+            }}
+        >
+        {children}
         </cartContext.Provider>
     )
 }
