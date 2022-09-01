@@ -1,8 +1,14 @@
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css"; 
 import { Link } from "react-router-dom";
+import { cartContext } from "../../store/cartContext";
+import { useContext } from "react";
 
 function NavBar () {
+
+    let {cart} = useContext(cartContext)
+
+
     return (
         <header>
             <div className="oferta-container">
@@ -19,7 +25,12 @@ function NavBar () {
                     <li><Link to="/contacto" className="ancore_list">Contacto</Link></li>
                     <li><Link to="/categoria/A" className="ancore_list">Categoria A </Link></li>
                     <li><Link to="/categoria/B" className="ancore_list">Categoria B</Link></li>
-                    <CartWidget/>
+                    {
+                        cart.length === 0 ?
+                        <div></div>
+                        :
+                        <CartWidget/>
+                    }
                 </ul>
             </nav>
         </header>

@@ -1,5 +1,4 @@
 // 1- Importamos el context con React.createContext ()
-import { computeHeadingLevel } from "@testing-library/react";
 import { createContext, useState } from "react";
 
 // 2- Creamos un nuevo contexto y lo exportamos porque sino no funciona
@@ -33,6 +32,9 @@ export function CartProvider ({children}){
         setCart(items)
         alert("quieres Eliminarlo ?")
     }
+    function cantidadTotal (){
+       return cart.reduce((acum, i) => acum + i.quantity, 0);
+    }
     function isInCart (id) {
         return(cart.some(itemInCart => itemInCart.id === id))
     }
@@ -44,7 +46,8 @@ export function CartProvider ({children}){
                 cart, 
                 addToCart,
                 precioTotal,
-                eliminarItem
+                eliminarItem,
+                cantidadTotal
             }}
         >
         {children}
