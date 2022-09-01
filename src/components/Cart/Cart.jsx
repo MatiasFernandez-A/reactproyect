@@ -1,5 +1,6 @@
 import { faBuildingCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import React, {useContext} from 'react'
+import { Link } from 'react-router-dom';
 import {cartContext} from '../../store/cartContext'
 import ItemCart from '../ItemCart/ItemCart';
 import './Cart.css';
@@ -7,6 +8,14 @@ import './Cart.css';
 function Cart( ) {
 
   let {cart, precioTotal} = useContext(cartContext)
+
+  if (cart.length === 0 ) {
+    return <div>
+      <p>No hat productos en el carrito</p>
+      <Link to='/productos'>Productos</Link>
+    </div>
+  }
+
 
 
   return (
