@@ -11,9 +11,12 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 // 4- Definimos cuales son los componentes que van a acceder a ese context 
 import {CartProvider} from './store/cartContext'; 
 import Cart from './components/Cart/Cart';
+// Importamos datos de firebase
+import firestoreDB from './services/firebase';
 
 
 function App() {
+  console.log(firestoreDB);
   return (
     <div>
       <BrowserRouter>
