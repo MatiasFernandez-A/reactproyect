@@ -1,37 +1,66 @@
 import "./ItemListContainer.css"
 import React, {useEffect, useState} from 'react'
-import itemsData from '../../data/data.js';
 import ItemList from "../ItemList/ItemList.jsx";
 import {useParams} from "react-router-dom"; 
 
+import firestoreDB from "../../services/firebase";
+import { getDocs, collection, query, where} from "firebase/firestore";
 
-function getProducts () {
-    return new Promise ((resolve) => {
-        setTimeout(()=> resolve (itemsData), 2000)
-    })
-}; 
+const getItemsFromDB = () => {
+
+    return new Promise((resolve) => {
+
+      const guitarsCollection = collection(firestoreDB, "guitars");
+  
+      getDocs(guitarsCollection).then((snapshot) => { 
+
+        const docsData = snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        
+        resolve(docsData);
+      });
+    });
+};
+
+const getItemsFromDBbyCategory = (category) => {
+    return new Promise((resolve) => {
+      const todosCollectionRef = collection(firestoreDB, "guitars");
+  
+      const q = query(todosCollectionRef, where("category", "==", category));
+  
+      getDocs(q).then((snapshot) => {
+        const docsData = snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        resolve(docsData);
+      });
+    });
+};
+
 
 export default function ItemListContainer (){
     
-    const [data, setData]  = useState ([]); 
+    const [products, setProducts] = useState([]);
 
     const idCategory = useParams().idCategory;
 
-    useEffect(() =>{
-        getProducts()
-            .then((respuesta) => {
-                if (idCategory === undefined){
-                    setData(respuesta)
-                } else {
-                    let filtrados = respuesta.filter( elemento => elemento.category === idCategory) 
-                    setData(filtrados)
-                }
+
+    useEffect (() =>{
+        if (idCategory === undefined){
+            getItemsFromDB().then((respuesta) => {
+            setProducts(respuesta);
         })
+        } else {
+            getItemsFromDBbyCategory(idCategory).then((respuesta) => {
+                setProducts(respuesta);
+            })
+        }
     }, []);
 
     return(
         <div>
-            <ItemList data={data}/>
+            <ItemList data={products}/>
         </div>
         
     );

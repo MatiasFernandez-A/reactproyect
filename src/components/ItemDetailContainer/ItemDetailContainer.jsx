@@ -1,37 +1,35 @@
 import React, {useEffect, useState} from 'react'
-import itemsData from '../../data/data.js';
 import ItemDetail from '../ItemDetail/ItemDetail.jsx';
 import { useParams } from 'react-router-dom';
 import './ItemDetailContainer.css'
+import firestoreDB from '../../services/firebase.js';
+import { collection, doc, getDoc } from "firebase/firestore";
 
 
 
-export default function ItemDetailContainer (props){
+export default function ItemDetailContainer (){
     
     const [item, setItem]  = useState ([]); 
 
     const idRoute = useParams().id;
 
-    function getProducts () {
-        return new Promise ((resolve,reject) => {
-            let itemSolitado = itemsData.find((elemento)=> elemento.id == idRoute);
-
-            if (itemSolitado === undefined) 
-                reject ("No se encontro el producto")
-            else 
-                setTimeout(() => {
-                    resolve(itemSolitado)
-                }, 1000);
-        })
-    }; 
-
-
-    useEffect(() =>{
-        getProducts().then((respuesta) => {
-            setItem(respuesta); 
+    function getToDoById(id) {
+        return new Promise((resolve, reject) => {
+          const guitarsCollectionRef = collection(firestoreDB, "guitars");
+          const docRef = doc(guitarsCollectionRef, id);
+    
+          getDoc(docRef).then((snapshot) => {
+            resolve({ ...snapshot.data(), id: snapshot.id });
+          });
         });
-    }, []);
-
+      }
+    
+      useEffect(() => {
+        getToDoById(idRoute)
+          .then((respuesta) => setItem(respuesta))
+          .catch((error) => alert(error));
+      }, []);
+      
     return(
         <div className='item-detail-container'>
             <ItemDetail item={item}/>
