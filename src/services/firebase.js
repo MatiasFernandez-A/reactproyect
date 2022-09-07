@@ -1,6 +1,9 @@
 
 import { initializeApp } from "firebase/app";
-import {getFirestore} from 'firebase/firestore'; 
+import {addDoc, collection, getFirestore} from 'firebase/firestore'; 
+import itemsData from "../data/data";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAZcS0PMInQx8d4qHJiHwTfj_zKbVXOa8M",
@@ -14,5 +17,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const firestoreDB = getFirestore(app)
+
+
+// esta funcion sirve para subir itemsData a firebase
+
+export async function saveProductsToFirebase () {
+  const collectionGuitars = collection(firestoreDB, "guitars")
+  
+  for (let item of itemsData ){
+    const docref = await addDoc(collectionGuitars,item)
+    console.log("documento creado con id ", docref.id);
+  }
+}
 
 export default firestoreDB;

@@ -12,11 +12,15 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import {CartProvider} from './store/cartContext'; 
 import Cart from './components/Cart/Cart';
 
+import { saveProductsToFirebase } from "./services/firebase";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <button onClick={()=> saveProductsToFirebase()}> Enviar Datos </button>
+        
+        
         <CartProvider>
           {/* 4 */}
           {/* Todo lo que esta dentro del CartProvider son los children que recive por

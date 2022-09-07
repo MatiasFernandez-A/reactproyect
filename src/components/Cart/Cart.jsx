@@ -3,6 +3,7 @@ import React, {useContext} from 'react'
 import { Link } from 'react-router-dom';
 import {cartContext} from '../../store/cartContext'
 import ItemCart from '../ItemCart/ItemCart';
+import UserForm from '../UserForm/UserForm';
 import './Cart.css';
 
 function Cart( ) {
@@ -39,7 +40,11 @@ function Cart( ) {
           <span>{precioTotal()}</span>
         </p>
       </div>
+      <div>
+        <UserForm cart={cart}/>
     </div>
+    </div>
+
   )
 }
 
