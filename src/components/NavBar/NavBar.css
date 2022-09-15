@@ -42,7 +42,8 @@ header nav {
     margin-bottom: 10px;
 }
 .title{
-    display: inline;
+    font-family: 'Italiana', serif;
+    text-transform: uppercase;
 }
 .title a {
     font-size: 30px;

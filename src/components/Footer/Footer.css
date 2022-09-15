@@ -1,3 +1,30 @@
 .footer-container{
     background-color:rgb(255, 255, 255);
+    display: flex;
+    width: 75%;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
 }
+.footer-titulo h2{
+    font-family: 'Italiana', serif;
+    text-transform: uppercase;
+}
+.footer-list li{
+    margin: 2px 0px;
+}
+.item-link{
+    text-transform: uppercase;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+.footer-icons{
+    width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+

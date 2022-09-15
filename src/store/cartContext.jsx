@@ -12,7 +12,13 @@ export function CartProvider ({children}){
     // Estado del carrito que en pricipio esta vacio 
 
     const [cart, setCart] = useState([]);
-    
+
+
+    function resetCart () {
+        setCart([])
+    }
+
+
     function addToCart(item, count){
 
         if (isInCart(item.id)){
@@ -24,19 +30,31 @@ export function CartProvider ({children}){
             setCart(copyCart);
         }
     }
+
+
     function precioTotal () {
         return cart.reduce((acum, i) => acum + i.quantity * i.price, 0)
     }
+
+
     function eliminarItem (id) {
         const items = cart.filter((product) => product.id !== id)
         setCart(items)
         alert("quieres Eliminarlo ?")
     }
+
+
     function cantidadTotal (){
        return cart.reduce((acum, i) => acum + i.quantity, 0);
     }
+
+
     function isInCart (id) {
         return(cart.some(itemInCart => itemInCart.id === id))
+    }
+
+    function vaciarCarrito () {
+        setCart([]);
     }
 
     return(
@@ -47,7 +65,9 @@ export function CartProvider ({children}){
                 addToCart,
                 precioTotal,
                 eliminarItem,
-                cantidadTotal
+                cantidadTotal,
+                resetCart,
+                vaciarCarrito
             }}
         >
         {children}

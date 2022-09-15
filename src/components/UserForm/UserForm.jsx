@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-
 import "./userform.css";
-
-import { getDocs, collection, addDoc } from "firebase/firestore";
-
+import { collection, addDoc } from "firebase/firestore";
 import firestoreDB from "../../services/firebase";
-import { useNavigate } from "react-router-dom";
+import {useContext} from 'react';
+import { cartContext } from "../../store/cartContext";
+
 
 function UserForm({ cart }) {
+ 
+  let {vaciarCarrito} = useContext(cartContext)
+
+
   const [userData, setUserData] = useState({
     name: "",
     email: "",
     telefono: "",
   });
 
-  let navigation = useNavigate();
-
   const [orderId, setOrderId] = useState(null);
-
-  /* { buyer: { name, phone, email }, items: [{id, title, price}], total  } */
 
   let total = 0;
 
@@ -37,11 +36,19 @@ function UserForm({ cart }) {
     //Nos conectamos a firebase
     const collectionRef = collection(firestoreDB, "orders");
     const docRef = await addDoc(collectionRef, ordenDeCompra);
+
     setOrderId(docRef.id);
 
-    /* --------------- Agregar un alert que diga que la compra se realizo  */
-    /* ----------- Al realizar la compra, vaciar el carrito y no dejarla nada al usuario, redirijirlo al home con un gracias por tu compra */
+    /*     vaciarCarrito() */
+
+    /* Aca no me toma este RETURN, yo supongo que es porque me la funcion de arriba me borra todo el contexto del cart */
+    /* Y no me anda el link a las categorias */
+    /*   */
+
+
   }
+  /* --------------- Agregar un alert que diga que la compra se realizo  */
+    /* ----------- Al realizar la compra, vaciar el carrito y no dejarla nada al usuario, redirijirlo al home con un gracias por tu compra */
 
   function inputChangeHandler(evt) {
     const input = evt.target;
@@ -55,7 +62,8 @@ function UserForm({ cart }) {
     setUserData(copyUserData);
   }
 
-  function handleReset(evt) {
+  function handleReset() {
+    vaciarCarrito()
     setUserData({
       name: "",
       email: "",
@@ -63,7 +71,7 @@ function UserForm({ cart }) {
     });
   }
 
-  if (orderId) {
+  if (orderId){
     return (
       <div>
         <h1>Gracias por tu compra </h1>
@@ -71,6 +79,7 @@ function UserForm({ cart }) {
       </div>
     );
   }
+
 
   return (
     <div className="form-container">
@@ -112,7 +121,7 @@ function UserForm({ cart }) {
         </div>
 
         <div>
-          <button type="submit" onTouch={handleSubmit}>
+          <button type="submit" onClick={handleSubmit}>
             Finalizar Compra
           </button>
           <button type="reset">Vaciar Carrito</button>
