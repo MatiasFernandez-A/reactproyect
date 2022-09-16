@@ -9,9 +9,9 @@ function Cart( ) {
 
   let {cart, precioTotal} = useContext(cartContext)
 
-  if (cart.length === 0 ) {
+/*   if (cart.length === 0 ) {
     return (
-      <section className='section-container'>
+      <section className='section-contai'>
         <div className='container-aviso'>
           <p>No hat productos en el carrito</p>
           <Link  to='/productos'>Productos</Link>
@@ -19,7 +19,7 @@ function Cart( ) {
       </section>
       
     )
-  }
+  } */
 
 
 

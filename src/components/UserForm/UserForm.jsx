@@ -39,7 +39,7 @@ function UserForm({ cart }) {
 
     setOrderId(docRef.id);
 
-    /*     vaciarCarrito() */
+    vaciarCarrito()
 
     /* Aca no me toma este RETURN, yo supongo que es porque me la funcion de arriba me borra todo el contexto del cart */
     /* Y no me anda el link a las categorias */

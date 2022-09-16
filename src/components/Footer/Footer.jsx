@@ -15,10 +15,10 @@ function Footer() {
       </ul>
       <div className='footer-icons'>
         <span>
-          <i class="fa-brands fa-instagram"></i>
+          <i className="fa-brands fa-instagram"></i>
         </span>
         <span>
-          <i class="fa-brands fa-facebook-f"></i>
+          <i className="fa-brands fa-facebook-f"></i>
         </span>
       </div>
     </section>

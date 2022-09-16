@@ -45,10 +45,9 @@ export default function ItemListContainer (){
 
     const idCategory = useParams().idCategory;
 
-
     useEffect (() =>{
         if (idCategory === undefined){
-            getItemsFromDB().then((respuesta) => {
+            getItemsFromDB().then((respuesta) => { 
             setProducts(respuesta);
         })
         } else {
@@ -56,8 +55,10 @@ export default function ItemListContainer (){
                 setProducts(respuesta);
             })
         }
-    }, []);
+    }, [idCategory]);
 
+
+    
     return(
         <div>
             <ItemList data={products}/>
