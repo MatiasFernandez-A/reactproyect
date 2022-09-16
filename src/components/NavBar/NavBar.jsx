@@ -16,7 +16,7 @@ function NavBar () {
             </div>
             <nav>
                 <div className="title_container">
-                    <h1 className="title"><a href="#">TG</a></h1>    
+                    <h1 className="title"><Link to="/">Tg</Link></h1>    
                 </div>
                 <ul className="list">
                     <li><Link to="/" className="ancore_list">Inicio</Link></li>

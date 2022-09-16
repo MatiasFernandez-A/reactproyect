@@ -28,7 +28,7 @@ export default function ItemDetailContainer (){
         getToDoById(idRoute)
           .then((respuesta) => setItem(respuesta))
           .catch((error) => alert(error));
-      }, []);
+      }, [idRoute]);
       
     return(
         <div className='item-detail-container'>

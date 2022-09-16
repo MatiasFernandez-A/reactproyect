@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import { Link } from 'react-router-dom';
 import {cartContext} from '../../store/cartContext'
 import ItemCart from '../ItemCart/ItemCart';
 import UserForm from '../UserForm/UserForm';
@@ -8,20 +7,6 @@ import './Cart.css';
 function Cart( ) {
 
   let {cart, precioTotal} = useContext(cartContext)
-
-/*   if (cart.length === 0 ) {
-    return (
-      <section className='section-contai'>
-        <div className='container-aviso'>
-          <p>No hat productos en el carrito</p>
-          <Link  to='/productos'>Productos</Link>
-        </div>
-      </section>
-      
-    )
-  } */
-
-
 
   return (
     <div className='cart-container'>
