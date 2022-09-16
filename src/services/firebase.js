@@ -18,9 +18,6 @@ const app = initializeApp(firebaseConfig);
 
 const firestoreDB = getFirestore(app)
 
-
-// esta funcion sirve para subir itemsData a firebase
-
 export async function saveProductsToFirebase () {
   const collectionGuitars = collection(firestoreDB, "guitars")
   

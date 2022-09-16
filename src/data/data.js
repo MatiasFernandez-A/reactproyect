@@ -1,4 +1,4 @@
-const itemsData = [{
+/* const itemsData = [{
     "id": 1,
     "model": "Dechelle",
     "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat",
@@ -96,4 +96,4 @@ const itemsData = [{
     "stock": 3
   }]
 
-export default itemsData; 
+export default itemsData;  */

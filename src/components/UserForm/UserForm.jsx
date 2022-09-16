@@ -41,14 +41,7 @@ function UserForm({ cart }) {
 
     vaciarCarrito()
 
-    /* Aca no me toma este RETURN, yo supongo que es porque me la funcion de arriba me borra todo el contexto del cart */
-    /* Y no me anda el link a las categorias */
-    /*   */
-
-
   }
-  /* --------------- Agregar un alert que diga que la compra se realizo  */
-    /* ----------- Al realizar la compra, vaciar el carrito y no dejarla nada al usuario, redirijirlo al home con un gracias por tu compra */
 
   function inputChangeHandler(evt) {
     const input = evt.target;
